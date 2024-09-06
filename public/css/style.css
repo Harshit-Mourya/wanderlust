@@ -51,7 +51,7 @@ body {
 }
 
 /* Cards */
-.card {
+.listing-card {
   border: none !important;
   margin: 2rem 0.5rem;
 }
@@ -109,4 +109,12 @@ body {
 .show-card {
   padding-left: 0;
   padding-right: 0;
+}
+
+/* Review */
+.trash-btn {
+  background: transparent !important;
+  border: none;
+  margin: 0 !important;
+  padding: 0 !important;
 }
