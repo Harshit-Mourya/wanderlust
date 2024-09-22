@@ -6,6 +6,7 @@
     /* flex-wrap: wrap; */
     align-items: center;
     justify-content: space-between;
+    height: 5rem;
   }
   .filter {
     text-align: center;
@@ -19,6 +20,15 @@
 
   .filter p {
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 1000px) {
+    .filter {
+      display: none;
+    }
+    #filters {
+      justify-content: center;
+    }
   }
 
   .tax-info {
