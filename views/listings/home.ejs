@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+  .home-page {
+    margin: 0.7rem 0;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+  }
+
+  @media (max-width: 600px) {
+    .home-page {
+      height: 100vh;
+    }
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center; /* Center text inside */
+  }
+
+  .explore-btn {
+    color: #fff;
+    padding: 0.5rem 3rem;
+    border-radius: 50px;
+    border: 2px solid white;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .explore-btn:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .welcome-container > * {
+    margin-bottom: 2rem;
+  }
+
+  .welcome-container h1 {
+    font-size: 3rem;
+  }
+
+  .info h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .info p {
+    margin-bottom: 0.5rem;
+  }
+
+  .last-para > * {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+</style>
+
+<div class="home-page">
+  <div class="home-container">
+    <div class="welcome-container">
+      <h1>Welcome to Wanderlust</h1>
+      <p>
+        Discover your next adventure with our platform dedicated to travel
+        accommodations. Whether you're looking for a cozy cabin in the woods or
+        a luxurious beachfront villa, we’ve got you covered.
+      </p>
+    </div>
+    <div class="info">
+      <h2>Create, Explore, and Share:</h2>
+      <p>User-Friendly Listings</p>
+      <p>Authentic Reviews</p>
+      <p>Secure User Experience</p>
+    </div>
+    <div class="last-para">
+      <p>
+        Join our community of wanderers and make your travel dreams a reality
+        with Wanderlust!
+      </p>
+      <form action="/listings" method="get">
+        <button class="explore-btn">Explore</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const images = [
+    'url("/bg-images/bg1.jpg")',
+    'url("/bg-images/bg2.avif")',
+    'url("/bg-images/bg3.avif")',
+    'url("/bg-images/bg4.avif")',
+    'url("/bg-images/bg5.avif")',
+  ];
+
+  let currentIndex = 0;
+  let homePage = document.querySelector(".home-page");
+
+  function changeBackground() {
+    homePage.style.backgroundImage =
+      "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8))," +
+      images[currentIndex];
+    homePage.style.transition = "background-image 3s ease-in-out";
+    currentIndex = (currentIndex + 1) % images.length;
+  }
+
+  changeBackground(); // Set the initial background
+  setInterval(changeBackground, 30000); // Change every 30 seconds
+</script>
